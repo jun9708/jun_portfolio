@@ -44,7 +44,7 @@ export default function Profile() {
               name="김준형"
               power
               reward
-              tags={['#도전', '#경험', '#피드백_수용']}
+              tags={['#도전', '#성장', '#경험', '#피드백_수용']}
               description
               image="/profile.jpg"
             />
