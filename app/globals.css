@@ -43,7 +43,7 @@ body {
   border-bottom: 1px solid #374151;
   white-space: nowrap;
   padding: 0.25rem 0;
-  z-index: 900; /* 헤더보다 낮게 */
+  z-index: 0; /* 헤더보다 낮게 */
   
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
