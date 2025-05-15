@@ -7,7 +7,8 @@ const Marquee: React.FC = () => {
   return (
     <div className="marquee-wrapper">
       <div className="marquee-content">
-        🚀 Hey there! Thanks for stopping by my portfolio. Feel free to reach out anytime!😊 &nbsp;&nbsp;&nbsp;&nbsp;
+        🚀항상 성장하고 도전하는 개발자가 되도록 실천중입니다!😊 &nbsp;&nbsp;&nbsp;&nbsp;
+        🥸Made By Jun💫 &nbsp;&nbsp;&nbsp;&nbsp;
       </div>
     </div>
   );
