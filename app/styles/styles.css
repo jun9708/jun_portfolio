@@ -1,0 +1,139 @@
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  @apply bg-white shadow-xl rounded-xl p-4 mb-4 cursor-pointer transition-transform duration-200 ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: rotateX(0deg) rotateY(0deg);
+}
+
+.card:hover {
+  @apply shadow-2xl; /* hover 시 그림자 효과 */
+  /* 회전 범위를 -10도 ~ 10도로 제한 */
+  transform: rotateY(10deg) rotateX(10deg);
+  /* 확대 범위를 1.1배로 제한 */
+  transform: scale(1.05);
+}
+
+.card.clicked {
+  transform: translateY(-12px) scale(1.05); /* 클릭 시 카드가 튀어나오게 */
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.15); /* 입체적 그림자 효과 */
+}
+
+.card .tag {
+  @apply text-xs font-bold px-2 py-1 rounded bg-gray-200 text-gray-700;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #e5e7eb; /* Tailwind gray-300 */
+  border-radius: 0.75rem;     /* rounded-xl */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* shadow-xl */
+}
+
+/* 카드 회전 시 최대 회전 범위 설정 */
+.card {
+  transition: transform 0.3s ease-out;
+  transform-origin: center;
+}
+
+.card:hover {
+  transform: rotateX(10deg) rotateY(10deg) scale(1.1);
+  transition: transform 0.3s ease-out; /* 과도한 확대 방지 */
+}
+
+.card:hover {
+  transform: rotateX(7deg) rotateY(7deg) scale(1.05);
+}
+
+/* -----------------------------------------------------------------------------------  */
+
+
+.card__shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.5s infinite;
+  pointer-events: none;
+  z-index: 5;
+  border-radius: inherit;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+/* -----------------------------------------------------------------------------------  */
+
+/* 모바일에서 카드의 크기 및 여백 조정 */
+@media (max-width: 768px) {
+  .card-popout {
+    width: 90vw; /* 모바일에서 카드 크기 줄이기 */
+    height: auto;
+    padding: 20px; /* 여백 줄이기 */
+  }
+
+  .card-popout img {
+    width: 100%; /* 모바일에서 이미지 크기 자동 조정 */
+    height: auto;
+  }
+
+  .card-popout::before {
+    width: 250%; /* 빛나는 효과의 크기 줄이기 */
+    height: 250%;
+  }
+
+  /* 글자 크기 및 여백 조정 */
+  .card-popout .card-content {
+    font-size: 14px; /* 글자 크기 줄이기 */
+    padding: 10px;
+  }
+}
+
+/* 태블릿에서의 설정 (768px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card-popout {
+    width: 70vw; /* 태블릿에서 카드 크기 설정 */
+    max-width: 600px;
+  }
+
+  .card-popout img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 데스크탑 화면 */
+@media (min-width: 1025px) {
+  .card-popout {
+    width: 50vw; /* 데스크탑에서 카드 크기 설정 */
+    max-width: 700px;
+  }
+
+  .card-popout img {
+    width: 100%;
+    height: auto;
+  }
+}
+

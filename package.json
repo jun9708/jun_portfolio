@@ -1,0 +1,35 @@
+{
+  "name": "hello_jun",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "canvas-confetti": "^1.9.3",
+    "framer-motion": "^12.11.3",
+    "lucide-react": "^0.510.0",
+    "next": "15.3.2",
+    "react": "^19.1.0",
+    "react-canvas-confetti": "^2.0.7",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^19.1.0",
+    "react-notion-x": "^7.3.0",
+    "react-use": "^17.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.6",
+    "@types/aos": "^3.0.7",
+    "@types/node": "^20",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6",
+    "typescript": "^5"
+  }
+}

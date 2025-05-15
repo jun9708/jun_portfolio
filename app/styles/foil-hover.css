@@ -1,0 +1,38 @@
+/* foil-hover.css */
+
+/* 카드 전체 영역 */
+.foil-hover {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  background-color: #1f1f1f;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+/* 호버 시 반짝이는 포일 텍스처 추가 */
+.foil-hover::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: url('/foil-mask.png'); /* ✨ 투명 마스크 텍스처 */
+  background-size: 200%;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+/* 호버 시 포일 효과 보이기 */
+.foil-hover:hover::after {
+  opacity: 1;
+}
+
+/* 마우스 위치 기반으로 카드 기울이기 */
+.foil-hover:hover {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale(1.05);
+}

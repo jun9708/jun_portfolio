@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*마키효과*/
+
+.marquee-wrapper {
+  position: fixed;
+  top: 60px; /* 헤더 높이에 맞게 조절 */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  border-top: 1px solid #374151;
+  border-bottom: 1px solid #374151;
+  white-space: nowrap;
+  padding: 0.25rem 0;
+  z-index: 900; /* 헤더보다 낮게 */
+  
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marqueeScroll 20s linear infinite;
+  font-size: 0.875rem;   /* 기존 1.125rem에서 작게 (text-sm) */
+  font-weight: 500;
+}
+
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/*-------------------------------------------------------------------------------*/
+.falling-star {
+  position: fixed;
+  top: -10px;
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px white);
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(30vw) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+  @keyframes fadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      text-shadow:
+        0 0 4px #f9d71c,      /* 은은한 밝은 노란색 */
+        0 0 10px #f9d71c,
+        0 0 20px #e0b91e,     /* 조금 더 따뜻한 노랑 */
+        0 0 30px #c4971f;     /* 부드러운 황금빛 */
+      opacity: 1;
+    }
+    50% {
+      text-shadow:
+        0 0 2px #f9d71c,
+        0 0 6px #f9d71c,
+        0 0 12px #e0b91e,
+        0 0 18px #c4971f;
+      opacity: 0.85;
+    }
+  }
+
+  .fade-up {
+    animation-name: fadeUp;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    opacity: 0;
+    line-height: 1.2;
+  }
+
+  .hello {
+    color:rgb(255, 255, 255); /* 노란색 계열 */
+    animation: glow 2.5s ease-in-out infinite;
+    display: inline-block;
+  }
